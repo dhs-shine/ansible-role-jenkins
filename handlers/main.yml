@@ -7,3 +7,9 @@
     src: basic-security.groovy
     dest: "{{ jenkins_home }}/init.groovy.d/basic-security.groovy"
   register: jenkins_users_config
+
+- name: configure proxy
+  template:
+    src: basic-proxy.groovy
+    dest: "{{ jenkins_home }}/init.groovy.d/basic-proxy.groovy"
+  register: jenkins_proxy_config

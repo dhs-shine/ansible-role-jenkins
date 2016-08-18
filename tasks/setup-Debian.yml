@@ -31,13 +31,17 @@
     deb: "/tmp/jenkins.deb"
     state: installed
   when: specific_version.stat.exists
-  notify: configure default users
+  notify:
+    - configure default users
+    - configure proxy
 
 - name: Validate Jenkins is installed and register package name.
   apt:
     name: jenkins
     state: present
-  notify: configure default users
+  notify:
+    - configure default users
+    - configure proxy
 
 - name: Install Jenkins from repository.
   apt:
