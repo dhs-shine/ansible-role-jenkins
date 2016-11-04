@@ -16,7 +16,7 @@ if (matcher.matches()) {
   println(matcher[0])
 
   def http_proxy_user = matcher[0][2] ? matcher[0][2] : ''
-  def http_proxy_password = matcher[0][3] ? matcher[0][2] : ''
+  def http_proxy_password = matcher[0][3] ? matcher[0][3] : ''
   def http_proxy_host = matcher[0][4]
   def http_proxy_port = matcher[0][6]? matcher[0][6].toInteger() : 80
 
