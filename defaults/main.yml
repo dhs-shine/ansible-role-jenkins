@@ -27,6 +27,9 @@ jenkins_admin_password_file: ""
 jenkins_admin_token: ""
 jenkins_admin_token_file: ""
 
+jenkins_http_proxy: "{{ ansible_env.http_proxy | default('') or ansible.env.HTTP_PROXY | default('') }}"
+jenkins_no_proxy: "{{ ansible_env.no_proxy | default('') or ansible.env.NO_PROXY | default('') }}"
+
 jenkins_process_user: jenkins
 jenkins_process_group: "{{ jenkins_process_user }}"
 
