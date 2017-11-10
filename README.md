@@ -51,6 +51,31 @@ The location at which the `jenkins-cli.jar` jarfile will be kept. This is used f
 
     jenkins_plugins: []
 
+We can use the latest and specified version of jenkins_plugins at the same time. If you have a specific version, the dependencies must be installed manually (make a list with plugin names and versions).
+
+        jenkins_plugins:
+          - name: 'scm-api'
+            version: '2.1.1'
+          - name: 'ssh-credentials'
+            version: '1.13'
+          - name: 'credentials'
+            version: '2.1.14'
+          - name: 'structs'
+          
+        jenkins_plugins:
+          - name: 'scm-api'
+            version: '2.1.1'
+          - name: 'ssh-credentials'
+          - name: 'credentials'
+          - name: 'structs'
+        
+        jenkins_plugins:
+          - name: 'scm-api'
+            version: '2.1.1'
+          - name: 'ssh-credentials'
+          - 'credentials'
+
+
 Jenkins plugins to be installed automatically during provisioning.
 
     jenkins_plugins_state: present

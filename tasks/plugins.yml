@@ -26,8 +26,9 @@
 
 - name: Install Jenkins plugins using password.
   jenkins_plugin:
-    name: "{{ item }}"
-    jenkins_home: "{{ jenkins_home }}"
+    name: "{{ item.name | default(item) }}"
+    version: "{{ item.version | default(omit) }}"
+    jenkins_home: "{{ jenkins_home }}"
     params:
       url_username: "{{ jenkins_admin_username }}"
       url_password: "{{ jenkins_admin_password }}"
@@ -41,7 +42,8 @@
 
 - name: Install Jenkins plugins using token.
   jenkins_plugin:
-    name: "{{ item }}"
+    name: "{{ item.name | default(item) }}"
+    version: "{{ item.version | default(omit) }}"
     params:
       url_token: "{{ jenkins_admin_token }}"
     updates_expiration: "{{ jenkins_plugin_updates_expiration }}"
